@@ -1,26 +1,22 @@
-# RANDOM FOREST REGRESSOR
-# Basic imports
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error as MSE
-
 # Set seed for reproducibility
 SEED = 1
 
 # Split dataset into 70% train and 30% test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=SEED)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.3,random_state=SEED)
 
-# Instantiate a random forests regressor 'rf' 400 estimators
-rf = RandomForestRegressor(n_estimators=400, min_samples_leaf=0.12, random_state=SEED)
+# Instantiate a stochastic GradientBoostingRegressor 'sgbt'
+sgbt = GradientBoostingRegressor(max_depth=1, subsample=0.8, max_features=0.2, n_estimators=300, random_state=SEED)
+# 0.8 refers to sample 80% of datafor training
+# 0.2 refers to each tree uses 20% of the available features to perform best split
 
-# Fit 'rf' to the training set
-rf.fit(X_train, y_train)
+# Fit 'sgbt' to the training set
+sgbt.fit(X_train, y_train)
 
-# Predict the test set labels 'y_pred'
-y_pred = rf.predict(X_test)
+# Predict the test set labels
+y_pred = sgbt.predict(X_test)
 
-# Evaluate the test set RMSE
+# Evaluate test set RMSE 'rmse_test'
 rmse_test = MSE(y_test, y_pred)**(1/2)
 
-# Print the test set RMSE
-print('Test set RMSE of rf: {:.2f}'.format(rmse_test))
+# Print 'rmse_test'
+print('Test set RMSE: {:.2f}'.format(rmse_test))
