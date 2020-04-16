@@ -1,4 +1,7 @@
 # datacamp
 datacamp machine learning scientist track
 
-Master the essential skills to land a job as a machine learning scientist! You'll augment your Python programming skill set with the toolbox to perform supervised, unsupervised, and deep learning. You'll learn how to process data for features, train your models, assess performance, and tune parameters for better performance. In the process, you'll get an introduction to natural language processing, image processing, and popular libraries such as Spark and Keras.
+This is my rep where I cumulate the solutions and pdfs from the datacamp ML track. 
+The structure (once I am done) will follow with pdf files for each chapter slidedeck and a dedicated Jupyter-nb per chapter, hence 23.
+
+Thanks for waiting for the latter.;)
